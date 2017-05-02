@@ -124,6 +124,7 @@ public class System1 {
         System.out.println("      Welcome      to       EvilHangman       ");
         System.out.println("---------------------------------------------");
         System.out.println("Input length");
+        
         Player.inputLength(sc.nextInt());
         checkLength();
         System.out.println("-------------------------------------------");
@@ -140,7 +141,10 @@ public class System1 {
             System.out.println(Word_Temp.wordList.get(i));
         }*/
 
-        guessCount = (Word_Temp.word.length() + 20) - Word_Temp.word.length() / 2;
+        guessCount = (Word_Temp.word.length());
+        if(guessCount<10){
+            guessCount+=10;
+        }
 
     }
 
@@ -160,6 +164,11 @@ public class System1 {
         while (guessCount > 0) {
             showPlaying();
             System.out.println("\nGuess count : " + guessCount);
+            System.out.print("Guess Letter : ");
+            for(int i = 0;i<letterList.size();i++){
+                System.out.print(letterList.get(i)+" ");
+            }
+            System.out.println();
             System.out.println("Input Letter");
             guessLetter = Player.guess(sc.next().toLowerCase().charAt(0));
             // if(guessLetter <97 || guessLetter > 122){
